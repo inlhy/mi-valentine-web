@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>San Valentín</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fff9e3;
+            overflow: hidden;
+        }
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+        .button-container {
+            margin: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #message {
+            font-size: 24px;
+            color: #ff6f61;
+            margin-top: 20px;
+        }
+        .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://i.imgur.com/F7zRZJj.png');
+            background-size: cover;
+            animation: float 5s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Quieres ser mi San Valentín?</h1>
+    <div class="button-container">
+        <button class="button" onclick="mostrarMensaje()">¡Sí!</button>
+        <button class="button" onclick="mostrarMensaje()">¡Sí!</button>
+    </div>
+    <p id="message" class="hidden">Otro 14 de febrero a tu lado linda, te amo.</p>
+
+    <script>
+        function mostrarMensaje() {
+            var mensaje = document.getElementById("message");
+            var numFlores = 20; // Número de flores que aparecerán en el fondo
+
+            mensaje.classList.remove("hidden");
+            mensaje.classList.add("visible");
+
+            for (var i = 0; i < numFlores; i++) {
+                var flower = document.createElement("div");
+                flower.className = "flower";
+                flower.style.left = Math.random() * 100 + "vw";
+                flower.style.top = Math.random() * 100 + "vh";
+                flower.style.animationDelay = Math.random() * 5 + "s";
+                document.body.appendChild(flower);
+            }
+        }
+    </script>
+</body>
+</html>
